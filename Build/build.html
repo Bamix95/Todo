@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Application</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div class="header_container">
+          <div class="header_content">
+            <p class="logo">Todo</p>
+            <button class="mode_btn">
+              <img
+                src="/images/icon-moon.svg"
+                alt="icon-moon"
+                class="icon_light"
+              />
+            </button>
+          </div>
+          <div class="new_todo">
+            <div class="radio_container">
+              <input type="radio" class="radio" id="radio" />
+              <label for="radio"></label>
+            </div>
+            <input
+              type="text"
+              placeholder="Create a new todo..."
+              class="todo_input"
+            />
+          </div>
+        </div>
+      </header>
+      <div class="todo_list_container">
+        <div class="todo_list_wrapper"></div>
+        <div class="activity">
+          <p><span class="left">0</span> items left</p>
+          <div class="activity_btn">
+            <button id="all_btn">All</button>
+            <button class="active_btn">Active</button>
+            <button class="completed_btn">Completed</button>
+          </div>
+          <button class="clear_comp_btn">Clear Completed</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

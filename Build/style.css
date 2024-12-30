@@ -1,0 +1,245 @@
+:root {
+  --background-color: hsl(236, 33%, 92%);
+  --text-color: hsl(234, 11%, 52%);
+  --placeholder-color: hsl(236, 9%, 61%);
+  --border-color: hsl(233, 11%, 84%);
+  --todo-bg: hsl(0, 0%, 100%);
+  --todo-text-completed: hsl(233, 11%, 84%);
+  --activity-hover: hsl(235, 19%, 35%);
+  --gradient-start: hsl(192, 100%, 67%);
+  --gradient-end: hsl(280, 87%, 65%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+html,
+body {
+  height: 100%;
+}
+img,
+svg {
+  max-width: 100%;
+}
+body {
+  font-family: Josefin Sans;
+  transition: background-color 0.3s, color 0.3s;
+}
+body.dark-mode {
+  --background-color: hsl(235, 24%, 19%);
+  --text-color: hsl(234, 39%, 85%);
+  --placeholder-color: hsl(234, 39%, 85%);
+  --border-color: hsl(233, 14%, 35%);
+  --todo-bg: hsl(237, 14%, 26%);
+  --todo-text-completed: hsl(234, 11%, 52%);
+  --activity-hover: hsl(236, 33%, 92%);
+  --gradient-start: hsl(280, 87%, 65%);
+  --gradient-end: hsl(192, 100%, 67%);
+}
+.container {
+  max-width: 1440px;
+  width: 100%;
+  background-color: var(--background-color);
+  height: 100vh;
+}
+.wrapper {
+  max-width: 768px;
+  display: block;
+  margin: 0 auto;
+}
+header {
+  background-image: url("/images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-block: 60px;
+}
+.header_container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.header_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.logo {
+  color: white;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+.mode_btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+.new_todo {
+  position: relative;
+}
+input[type="text"] {
+  width: 100%;
+  padding-block: 20px;
+  padding-left: 48px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: var(--text-color);
+  background: var(--todo-bg);
+}
+input[type="text"]::placeholder {
+  color: var(--text-color);
+}
+.radio {
+  display: none;
+}
+.todo_radio {
+  display: none;
+}
+.radio_container {
+  position: absolute;
+  left: 10px;
+  top: 26%;
+}
+.comp_radio_container label {
+  cursor: pointer;
+  position: relative;
+}
+.radio_container label {
+  cursor: pointer;
+  position: relative;
+}
+
+.comp_radio_container label,
+.radio_container label::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--placeholder-color);
+  display: inline-block;
+  outline: none;
+}
+.comp_radio_container label::after {
+  content: "";
+  background-image: linear-gradient(var(--gradient-start), var(--gradient-end)),
+    url("/images/icon-check.svg");
+  background-size: cover, 50%;
+  background-repeat: no-repeat;
+  background-position: center, center;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  display: inline-block;
+  border-radius: 50%;
+  left: 0px;
+  bottom: 0px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  outline: none;
+}
+.comp_radio_container .todo_radio:checked + label::after {
+  opacity: 1;
+}
+.todo_list_container {
+  max-width: 768px;
+  display: block;
+  margin: 0 auto;
+  background-color: var(--todo-bg);
+  border-radius: 8px;
+  margin-top: -36px;
+}
+.todo_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+.todo_content {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.todo_text {
+  font-size: 18px;
+  color: var(--text-color);
+}
+.todo_text.completed {
+  text-decoration: line-through;
+  font-size: 18px;
+  color: var(--todo-text-completed);
+}
+.del_btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+#all_btn {
+  color: hsl(220, 98%, 61%);
+}
+.activity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+.activity_btn {
+  display: flex;
+  gap: 12px;
+}
+.activity button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--placeholder-color);
+  transition: color 0.3s ease-in-out;
+}
+.activity button:hover {
+  color: var(--activity-hover);
+}
+.activity p {
+  font-size: 14px;
+  color: var(--placeholder-color);
+}
+@media (max-width: 425px) {
+  .container {
+    max-width: 425px;
+    width: 100%;
+  }
+  .header_container {
+    max-width: 425px;
+    margin: 0 auto;
+    padding-inline: 20px;
+  }
+  .todo_list_container {
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+    background-color: var(--todo-bg);
+    border-radius: 8px;
+    margin-top: -36px;
+  }
+  .activity p {
+    display: none;
+  }
+  .clear_comp_btn {
+    display: none;
+  }
+  .activity {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
